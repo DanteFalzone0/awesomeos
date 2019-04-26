@@ -1,3 +1,6 @@
+; assemble as follows:
+;	nasm -f bin awesomeos.asm -o awesomeos.bin
+
 	[org	0x7c00]
 
 	mov	bx, hello
@@ -10,7 +13,7 @@
 
 	jmp	$
 
-%include "print.asm"
+%include "print.asm"	; you must have this in the same directory before assembling
 
 hello:
 	db	"Hello, world!", 0
