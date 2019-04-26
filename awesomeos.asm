@@ -1,24 +1,32 @@
-; assemble as follows:
+; Assemble as follows:
 ;	nasm -f bin awesomeos.asm -o awesomeos.bin
+; or:
+;	nasm -f bin awesomeos.asm -o awesomeos.iso
+;
+; You can run this from a USB drive; install it from the .iso file as follows:
+;	sudo dd if=<filepath>/awesomeos.iso of=dev/<mount point for your usb>
+;
 
-	[org	0x7c00]
+	[org    0x7c00]
 
-	mov	bx, hello
-	call	print_nl
-	call	print
-	call	print_nl
-	mov	bx, welcome
-	call 	print
-	call	print_nl
+        mov     ax, 0
+        mov     ds, ax ; stackoverflow says this must be set to zero
+        mov     bx, hello
+        call    print_nl
+        call    print
+        call    print_nl
+        mov     bx, welcome
+        call    print
+        call    print_nl
 
-	jmp	$
+        jmp     $
 
-%include "print.asm"	; you must have this in the same directory before assembling
+%include "print.asm"
 
 hello:
-	db	"Hello, world!", 0
+        db      "Hello, world!", 0
 welcome:
-	db	"Welcome to Dante's operating system, AwesomeOS.", 0
+        db      "Welcome to Dante's operating system, AwesomeOS.", 0
 
-	times	510-($-$$) db 0
-	dw	0xaa55
+        times   510-($-$$) db 0
+        dw      0xaa55
