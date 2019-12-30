@@ -1,3 +1,11 @@
+/*
+NOTICE posted 30 December 2019
+
+I am archiving much of my old code from when I was first learning to program.
+The code in this repository isn't the worst ever, but it was written by copy-
+pasting snippets from the internet without any understanding of how they work.
+*/
+
 # awesomeos
 Some low-level systems programming by Dante Falzone
 
